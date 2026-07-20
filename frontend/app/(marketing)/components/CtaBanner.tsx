@@ -43,7 +43,7 @@ export default function CtaBanner() {
           </p>
         </div>
         <a
-          href="#top"
+          href="/login"
           style={{
             backgroundColor: colors.white,
             color: colors.orangeDeep,

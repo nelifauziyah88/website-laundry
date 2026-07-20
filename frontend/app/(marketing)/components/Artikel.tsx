@@ -88,7 +88,7 @@ export default function Artikel() {
               </p>
               <div style={{ fontSize: 13.5, color: colors.inkSoft, marginBottom: 24 }}>{article.date}</div>
               <a
-                href="#artikel"
+                href="/artikel"
                 style={{
                   display: "inline-block",
                   backgroundColor: colors.orange,

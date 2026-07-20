@@ -225,7 +225,7 @@ export default function ProSection() {
           </div>
 
           <a
-            href="#top"
+            href="/login"
             style={{
               display: "block",
               backgroundColor: colors.orange,

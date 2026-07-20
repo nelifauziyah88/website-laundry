@@ -107,8 +107,8 @@ export default function Features() {
         style={{
           position: "relative",
           zIndex: 0,
-          marginTop: -40,
-          backgroundColor: "#F4F5F7",
+          marginTop: -24,
+          backgroundColor: "#ffffff",
           borderTopLeftRadius: 40,
           borderTopRightRadius: 40,
           padding: "88px 24px 72px",

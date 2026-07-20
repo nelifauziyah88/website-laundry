@@ -7,10 +7,11 @@ export default function Hero() {
       id="top"
       style={{
         position: "relative",
+        zIndex: 1,
         overflow: "hidden",
         paddingTop: 48,
         paddingBottom: 0,
-        background: `linear-gradient(180deg, ${colors.cream} 0%, ${colors.peach} 45%, ${colors.peachDeep} 100%)`
+        background: `linear-gradient(180deg, ${colors.cream} 0%, ${colors.peach} 45%, ${colors.peachDeep} 100%)`,
       }}
     >
       <div
@@ -23,7 +24,7 @@ export default function Hero() {
           backgroundImage: `
             repeating-linear-gradient(45deg, rgba(255,255,255,0.55) 0px, rgba(255,255,255,0.55) 1px, transparent 1px, transparent 42px),
             repeating-linear-gradient(-45deg, rgba(255,255,255,0.55) 0px, rgba(255,255,255,0.55) 1px, transparent 1px, transparent 42px)
-          `
+          `,
         }}
       />
 
@@ -34,7 +35,7 @@ export default function Hero() {
           maxWidth: 680,
           margin: "0 auto",
           padding: "40px 24px 0",
-          textAlign: "center"
+          textAlign: "center",
         }}
       >
         <div
@@ -49,7 +50,7 @@ export default function Hero() {
             fontWeight: 400,
             padding: "9px 18px",
             borderRadius: radii.pill,
-            marginBottom: 24
+            marginBottom: 24,
           }}
         >
           Kelola Bisnis Tanpa Ribet
@@ -62,11 +63,15 @@ export default function Hero() {
             lineHeight: 1.18,
             fontWeight: 500,
             letterSpacing: "-0.02em",
-            marginBottom: 20
+            marginBottom: 20,
           }}
         >
-          <span style={{ display: "block", color: colors.ink }}>Aplikasi Kasir Laundry</span>
-          <span style={{ display: "block", color: colors.orange }}>Modern &amp; Praktis</span>
+          <span style={{ display: "block", color: colors.ink }}>
+            Aplikasi Kasir Laundry
+          </span>
+          <span style={{ display: "block", color: colors.orange }}>
+            Modern &amp; Praktis
+          </span>
         </h1>
 
         <p
@@ -75,7 +80,7 @@ export default function Hero() {
             lineHeight: 1.65,
             color: colors.inkSoft,
             maxWidth: 480,
-            margin: "0 auto 32px"
+            margin: "0 auto 32px",
           }}
         >
           Kelola transaksi, pantau status cucian, dan lihat laporan bisnis
@@ -88,11 +93,11 @@ export default function Hero() {
             flexDirection: "column",
             alignItems: "center",
             gap: 14,
-            marginBottom: 0
+            marginBottom: 0,
           }}
         >
           <a
-            href="#pro"
+            href="/login"
             style={{
               width: "100%",
               maxWidth: 340,
@@ -103,13 +108,13 @@ export default function Hero() {
               fontSize: 16,
               padding: "16px 28px",
               borderRadius: radii.pill,
-              boxShadow: "0 16px 30px -14px rgba(234, 91, 47, 0.7)"
+              boxShadow: "0 16px 30px -14px rgba(234, 91, 47, 0.7)",
             }}
           >
             Coba Gratis Sekarang
           </a>
           <a
-            href="#aplikasi"
+            href="/login"
             style={{
               width: "100%",
               maxWidth: 340,
@@ -120,7 +125,7 @@ export default function Hero() {
               fontSize: 16,
               padding: "16px 28px",
               borderRadius: radii.pill,
-              boxShadow: shadows.soft
+              boxShadow: shadows.soft,
             }}
           >
             Download Sekarang
@@ -137,16 +142,27 @@ export default function Hero() {
           padding: "0 24px",
           display: "flex",
           alignItems: "flex-end",
-          justifyContent: "center"
+          justifyContent: "center",
         }}
       >
-        <div style={{ width: "32%", transform: "rotate(-9deg) translate(14px, 26px)", zIndex: 1 }}>
+        <div
+          style={{
+            width: "32%",
+            transform: "rotate(-9deg) translate(14px, 26px)",
+            zIndex: 1,
+          }}
+        >
           <Image
             src="/images/phone_left.avif"
             alt="Layar transaksi Ayocuci"
             width={384}
             height={587}
-            style={{ width: "100%", height: "auto", borderRadius: radii.md, filter: `drop-shadow(${shadows.soft})` }}
+            style={{
+              width: "100%",
+              height: "auto",
+              borderRadius: radii.md,
+              filter: `drop-shadow(${shadows.soft})`,
+            }}
           />
         </div>
         <div style={{ width: "40%", zIndex: 2, margin: "0 -14px" }}>
@@ -156,21 +172,36 @@ export default function Hero() {
             width={428}
             height={933}
             priority
-            style={{ width: "100%", height: "auto", filter: `drop-shadow(${shadows.card})` }}
+            style={{
+              width: "100%",
+              height: "auto",
+              filter: `drop-shadow(${shadows.card})`,
+            }}
           />
         </div>
-        <div style={{ width: "32%", transform: "rotate(9deg) translate(-14px, 26px)", zIndex: 1 }}>
+        <div
+          style={{
+            width: "32%",
+            transform: "rotate(9deg) translate(-14px, 26px)",
+            zIndex: 1,
+          }}
+        >
           <Image
             src="/images/phone_right.avif"
             alt="Layar laporan Ayocuci"
             width={384}
             height={610}
-            style={{ width: "100%", height: "auto", borderRadius: radii.md, filter: `drop-shadow(${shadows.soft})` }}
+            style={{
+              width: "100%",
+              height: "auto",
+              borderRadius: radii.md,
+              filter: `drop-shadow(${shadows.soft})`,
+            }}
           />
         </div>
       </div>
 
-      <div style={{ height: 48 }} />
+      <div style={{ height: 88 }} />
     </section>
   );
 }

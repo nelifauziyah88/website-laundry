@@ -2,7 +2,8 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { colors, radii, shadows } from "../login/theme";
+import { colors, radii, shadows } from "../../(marketing)/theme";
+import Link from "next/link";
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -41,7 +42,9 @@ export default function LoginPage() {
           }}
           className="login-form-side"
         >
-          <Image src="/images/LogoAycuci.avif" alt="Ayocuci" width={130} height={37} style={{ marginBottom: 40 }} />
+          <Link href="/#hero">
+            <Image src="/images/LogoAycuci.avif" alt="Ayocuci" width={130} height={37} style={{ marginBottom: 40 }} />
+          </Link>
 
           <h1
             style={{

@@ -5,10 +5,10 @@ import { useEffect, useState } from "react";
 import { colors, radii } from "../theme";
 
 const navLinks = [
-  { label: "Fitur", href: "#fitur" },
-  { label: "Harga", href: "#pro" },
-  { label: "Artikel", href: "#artikel" },
-  { label: "Contact", href: "#contact" },
+  { label: "Fitur", href: "/#fitur" },
+  { label: "Harga", href: "/#pro" },
+  { label: "Artikel", href: "/#artikel" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {

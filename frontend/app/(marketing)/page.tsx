@@ -4,6 +4,7 @@ import Artikel from "./components/Artikel";
 import HowItWorks from "./components/HowItWorks";
 import AppShowcase from "./components/AppShowcase";
 import ProSection from "./components/ProSection";
+import Contact from "./components/Contact";
 import CtaBanner from "./components/CtaBanner";
 
 export default function MarketingPage() {
@@ -15,6 +16,7 @@ export default function MarketingPage() {
       <HowItWorks />
       <AppShowcase />
       <ProSection />
+      <Contact />
       <CtaBanner />
     </>
   );
