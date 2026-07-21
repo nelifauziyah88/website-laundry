@@ -1,6 +1,18 @@
 import Image from "next/image";
 import { colors, radii, shadows } from "../theme";
 
+const partners = [
+  { src: "/images/partner1.webp", alt: "Kuman Setrika Laundry" },
+  { src: "/images/partner2.webp", alt: "Mesin Laundry Care Medan" },
+  { src: "/images/partner3.webp", alt: "Bengkel Mesin Laundry Indonesia" },
+  { src: "/images/partner4.webp", alt: "Wangi Laundry Store" },
+  { src: "/images/partner5.webp", alt: "Pojok Pewangi Laundry" },
+  { src: "/images/partner6.webp", alt: "Galeri Mesin Laundry" },
+  { src: "/images/partner7.webp", alt: "EcoPack Laundry Supply" },
+];
+
+const marqueeItems = [...partners, ...partners];
+
 export default function Hero() {
   return (
     <section
@@ -90,8 +102,10 @@ export default function Hero() {
         <div
           style={{
             display: "flex",
-            flexDirection: "column",
+            flexDirection: "row",
             alignItems: "center",
+            justifyContent: "center",
+            flexWrap: "wrap",
             gap: 14,
             marginBottom: 0,
           }}
@@ -99,8 +113,8 @@ export default function Hero() {
           <a
             href="/login"
             style={{
-              width: "100%",
-              maxWidth: 340,
+              flex: "1 1 auto",
+              maxWidth: 220,
               textAlign: "center",
               background: `linear-gradient(135deg, ${colors.orange} 0%, ${colors.orangeDeep} 100%)`,
               color: colors.white,
@@ -116,8 +130,8 @@ export default function Hero() {
           <a
             href="/login"
             style={{
-              width: "100%",
-              maxWidth: 340,
+              flex: "1 1 auto",
+              maxWidth: 220,
               textAlign: "center",
               backgroundColor: colors.white,
               color: colors.ink,
@@ -201,7 +215,120 @@ export default function Hero() {
         </div>
       </div>
 
-      <div style={{ height: 88 }} />
+      <div
+        style={{
+          position: "relative",
+          zIndex: 2,
+          marginTop: -64,
+          backgroundColor: colors.white,
+          boxShadow: "0 -24px 40px -20px rgba(20, 15, 10, 0.18)",
+          paddingTop: 56,
+          paddingBottom: 72,
+        }}
+      >
+        <div
+          style={{
+            maxWidth: 680,
+            margin: "0 auto",
+            padding: "0 24px",
+            textAlign: "center",
+          }}
+        >
+          <div
+            style={{
+              fontSize: 13.5,
+              fontWeight: 600,
+              letterSpacing: "0.08em",
+              color: colors.orange,
+              marginBottom: 12,
+            }}
+          >
+            DIPERCAYA OLEH
+          </div>
+          <h2
+            style={{
+              fontFamily: "var(--font-display)",
+              fontSize: "clamp(26px, 4vw, 38px)",
+              lineHeight: 1.2,
+              fontWeight: 500,
+              letterSpacing: "-0.02em",
+              color: colors.ink,
+              marginBottom: 40,
+            }}
+          >
+            Partner Kami
+          </h2>
+        </div>
+
+        <div
+          style={{
+            position: "relative",
+            width: "100%",
+            overflow: "hidden",
+            maskImage:
+              "linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%)",
+            WebkitMaskImage:
+              "linear-gradient(90deg, transparent 0%, black 8%, black 92%, transparent 100%)",
+          }}
+        >
+          <div
+            className="partners-track"
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: 28,
+              width: "max-content",
+            }}
+          >
+            {marqueeItems.map((partner, index) => (
+              <div
+                key={`${partner.alt}-${index}`}
+                style={{
+                  flex: "0 0 auto",
+                  width: 230,
+                  height: 116,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backgroundColor: colors.white,
+                  border: "1px solid rgba(0, 0, 0, 0.10)",
+                  borderRadius: radii.md,
+                  boxShadow: shadows.soft,
+                  padding: 16,
+                }}
+              >
+                <Image
+                  src={partner.src}
+                  alt={partner.alt}
+                  width={190}
+                  height={76}
+                  style={{
+                    width: "100%",
+                    height: "auto",
+                    maxHeight: 76,
+                    objectFit: "contain",
+                    transform: "scale(1.3)",
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <style>{`
+        .partners-track {
+          animation: partners-scroll 30s linear infinite;
+        }
+        @keyframes partners-scroll {
+          from {
+            transform: translateX(0);
+          }
+          to {
+            transform: translateX(-50%);
+          }
+        }
+      `}</style>
     </section>
   );
 }
