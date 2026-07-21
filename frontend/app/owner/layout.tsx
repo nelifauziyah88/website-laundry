@@ -1,34 +1,56 @@
 "use client";
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
 import Sidebar from "./components/Sidebar";
 import Header from "./components/Header";
+import AuthGuard from "./AutoGuard";
 import { adminColors } from "./adminTheme";
 
-export default function AdminLayout({ children }: { children: React.ReactNode }) {
-  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+type AdminLayoutProps = {
+  children: ReactNode;
+};
+
+export default function AdminLayout({
+  children,
+}: AdminLayoutProps) {
+  const [isSidebarOpen, setIsSidebarOpen] =
+    useState(true);
 
   return (
-    <div style={{ minHeight: "100vh", backgroundColor: adminColors.white }}>
-      <Sidebar isOpen={isSidebarOpen} onToggle={() => setIsSidebarOpen((prev) => !prev)} />
+    <AuthGuard>
       <div
         style={{
-          marginLeft: isSidebarOpen ? 280 : 88,
-          transition: "margin-left 0.2s ease",
           minHeight: "100vh",
           backgroundColor: adminColors.white,
         }}
       >
-        <Header userName="Bobyrianto Nainggolan" userEmail="bobyriannainggolan@gmail.com" />
-        <main
+        <Sidebar
+          isOpen={isSidebarOpen}
+          onToggle={() =>
+            setIsSidebarOpen((prev) => !prev)
+          }
+        />
+
+        <div
           style={{
-            padding: "24px 32px 40px",
+            marginLeft: isSidebarOpen ? 280 : 88,
+            transition: "margin-left 0.2s ease",
+            minHeight: "100vh",
             backgroundColor: adminColors.white,
           }}
         >
-          {children}
-        </main>
+          <Header />
+
+          <main
+            style={{
+              padding: "24px 32px 40px",
+              backgroundColor: adminColors.white,
+            }}
+          >
+            {children}
+          </main>
+        </div>
       </div>
-    </div>
+    </AuthGuard>
   );
 }

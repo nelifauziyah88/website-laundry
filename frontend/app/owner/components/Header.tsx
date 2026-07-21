@@ -25,7 +25,7 @@ type UserData = {
   avatarUrl: string | null;
 };
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:4000";
+const API_URL = process.env.NEXT_PUBLIC_API_URL;
 
 const routeTitles: { path: string; title: string }[] = [
   {
@@ -141,22 +141,27 @@ export default function Header() {
   }, []);
 
   async function handleLogout() {
-    try {
-      setIsLoggingOut(true);
+  try {
+    setIsLoggingOut(true);
 
-      await fetch(`${API_URL}/api/auth/logout`, {
+    const response = await fetch(
+      `${API_URL}/api/auth/logout`,
+      {
         method: "POST",
         credentials: "include",
-      });
-    } catch (error) {
-      console.error("Logout error:", error);
-    } finally {
-      setUser(null);
-      setIsMenuOpen(false);
-      setIsLoggingOut(false);
-      router.replace("/login");
-      router.refresh();
+      }
+    );
+
+    if (!response.ok) {
+      throw new Error("Logout gagal");
     }
+
+    window.location.replace("/login");
+  } catch (error) {
+    console.error("Logout error:", error);
+  } finally {
+    setIsLoggingOut(false);
+  }
   }
 
   const userName = user?.nama || "Memuat...";
